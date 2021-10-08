@@ -1,13 +1,15 @@
 package com.example.demo.models;
 
+import javafx.beans.property.SimpleStringProperty;
+
 import java.util.Objects;
 
 public class Person implements Comparable<Person>{
     private static int counter = 0;
 
     private int id;
-    private String nameAndSurname;
-    private String number;
+    private SimpleStringProperty nameAndSurname;
+    private SimpleStringProperty number;
 
     public Person() {
         id = ++counter;
@@ -15,8 +17,8 @@ public class Person implements Comparable<Person>{
 
     public Person(String nameAndSurname, String number) {
         id = ++counter;
-        this.nameAndSurname = nameAndSurname;
-        this.number = number;
+        this.nameAndSurname.set(nameAndSurname);
+        this.number.set(number);
     }
 
     public int getId() {
@@ -24,19 +26,19 @@ public class Person implements Comparable<Person>{
     }
 
     public String getNameAndSurname() {
-        return nameAndSurname;
+        return nameAndSurname.get();
     }
 
     public void setNameAndSurname(String nameAndSurname) {
-        this.nameAndSurname = nameAndSurname;
+        this.nameAndSurname.set(nameAndSurname);
     }
 
     public String getNumber() {
-        return number;
+        return number.get();
     }
 
     public void setNumber(String number) {
-        this.number = number;
+        this.number.set(number);
     }
 
     @Override
