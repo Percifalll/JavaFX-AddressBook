@@ -7,14 +7,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-
-import java.util.Arrays;
+import javafx.stage.Stage;
 
 public class MainController {
 
@@ -36,7 +37,6 @@ public class MainController {
 
     @FXML
     private Label recordsCount;
-
 
     public void initialize() {
         service = new PersonService();
