@@ -10,9 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.example.demo.controllers.AddController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.controllers.AddController">
    <children>
       <GridPane alignment="CENTER" prefWidth="400.0" VBox.vgrow="ALWAYS">
         <columnConstraints>
@@ -48,12 +46,12 @@
       </GridPane>
       <HBox alignment="CENTER_RIGHT" minHeight="-Infinity" prefHeight="70.0" prefWidth="200.0">
          <children>
-            <Button fx:id="addButton" minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="Add">
+            <Button fx:id="addButton" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#addonClick" prefWidth="80.0" text="Add">
                <HBox.margin>
                   <Insets left="15.0" right="15.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="addClearButton" layoutX="170.0" layoutY="38.0" minWidth="-Infinity" mnemonicParsing="false" prefWidth="80.0" text="Clear">
+            <Button fx:id="addClearButton" layoutX="170.0" layoutY="38.0" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#clearOnClick" prefWidth="80.0" text="Clear">
                <HBox.margin>
                   <Insets left="15.0" right="25.0" />
                </HBox.margin>
