@@ -49,11 +49,11 @@ public class Person implements Comparable<Person>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return id == person.id;
+        return Objects.equals(nameAndSurname, person.nameAndSurname) && Objects.equals(number, person.number);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(nameAndSurname, number);
     }
 }
