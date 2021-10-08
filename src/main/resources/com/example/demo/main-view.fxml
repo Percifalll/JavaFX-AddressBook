@@ -35,14 +35,14 @@
       </HBox>
       <FlowPane alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="500.0">
          <children>
-            <TextField fx:id="searchTextField" prefWidth="230.0">
+            <TextField fx:id="searchTextField" prefWidth="240.0">
                <FlowPane.margin>
-                  <Insets right="10.0" />
+                  <Insets right="15.0" />
                </FlowPane.margin>
             </TextField>
             <ComboBox fx:id="searchChoiceBox" prefWidth="70.0">
                <FlowPane.margin>
-                  <Insets right="10.0" />
+                  <Insets right="15.0" />
                </FlowPane.margin>
             </ComboBox>
             <Button mnemonicParsing="false" onMouseClicked="#searchButtonClick" prefHeight="31.0" prefWidth="70.0" text="Search">
@@ -56,15 +56,15 @@
          <children>
             <TableView layoutX="50.0" layoutY="-29.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="0.0">
               <columns>
-                <TableColumn prefWidth="149.0" text="Phone" />
-                  <TableColumn prefWidth="75.0" text="Person" />
+                <TableColumn fx:id="columnName" prefWidth="149.0" text="Phone" />
+                  <TableColumn fx:id="columnNumber" prefWidth="75.0" text="Person" />
               </columns>
             </TableView>
          </children>
       </AnchorPane>
       <AnchorPane maxHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="200.0">
          <children>
-            <Label layoutX="35.0" layoutY="14.0" text="Records count:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="15.0" />
+            <Label fx:id="recordsCount" layoutX="35.0" layoutY="14.0" text="Records count:" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="15.0" />
          </children>
       </AnchorPane>
    </children>
