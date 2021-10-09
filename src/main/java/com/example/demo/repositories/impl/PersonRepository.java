@@ -2,17 +2,14 @@ package com.example.demo.repositories.impl;
 
 import com.example.demo.models.Person;
 import com.example.demo.repositories.Repository;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class PersonRepository implements Repository {
-    private final Set<Person> people;
+    private final ObservableList<Person> people;
 
     public PersonRepository() {
-        people = new HashSet<>();
+        people = FXCollections.observableArrayList();
     }
 
     @Override
@@ -63,7 +60,7 @@ public class PersonRepository implements Repository {
     }
 
     @Override
-    public List<Person> getAll() {
-        return new ArrayList<>(people);
+    public ObservableList<Person> getAll() {
+        return people;
     }
 }

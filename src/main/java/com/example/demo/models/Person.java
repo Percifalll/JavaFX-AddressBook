@@ -1,5 +1,6 @@
 package com.example.demo.models;
 
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.util.Objects;
@@ -7,22 +8,25 @@ import java.util.Objects;
 public class Person implements Comparable<Person>{
     private static int counter = 0;
 
-    private int id;
-    private SimpleStringProperty nameAndSurname;
-    private SimpleStringProperty number;
+    private final SimpleIntegerProperty id;
+    private final SimpleStringProperty nameAndSurname;
+    private final SimpleStringProperty number;
 
     public Person() {
-        id = ++counter;
+        id = new SimpleIntegerProperty();
+        nameAndSurname = new SimpleStringProperty();
+        number = new SimpleStringProperty();
+        id.set(++counter);
     }
 
     public Person(String nameAndSurname, String number) {
-        id = ++counter;
+        this();
         this.nameAndSurname.set(nameAndSurname);
         this.number.set(number);
     }
 
     public int getId() {
-        return id;
+        return id.get();
     }
 
     public String getNameAndSurname() {
@@ -43,7 +47,7 @@ public class Person implements Comparable<Person>{
 
     @Override
     public int compareTo(Person o) {
-        return id - o.getId();
+        return id.get() - o.getId();
     }
 
     @Override

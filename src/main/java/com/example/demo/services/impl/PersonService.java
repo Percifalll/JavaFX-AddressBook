@@ -3,6 +3,7 @@ package com.example.demo.services.impl;
 import com.example.demo.models.Person;
 import com.example.demo.repositories.impl.PersonRepository;
 import com.example.demo.services.Service;
+import javafx.collections.ObservableList;
 
 import java.util.List;
 
@@ -70,7 +71,7 @@ public class PersonService implements Service {
     }
 
     @Override
-    public List<Person> getAll() {
+    public ObservableList<Person> getAll() {
         return repository.getAll();
     }
 }
