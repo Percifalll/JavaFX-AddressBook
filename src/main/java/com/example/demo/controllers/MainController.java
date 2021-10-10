@@ -2,7 +2,6 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Person;
 import com.example.demo.services.impl.PersonService;
-import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -28,6 +27,7 @@ public class MainController {
     private AddController addController;
     private EditController editController;
 
+    @FXML
     private TableView<Person> personTable;
 
     @FXML
@@ -49,19 +49,18 @@ public class MainController {
 
     public void initialize() {
         service = new PersonService();
-        ObservableList<Person> observableList = service.getAll();
-        personTable = new TableView<>();
 
-        personTable.setItems(observableList);
+        service.save(new Person("Name", "1234567890"));
+        service.save(new Person("Name2", "1234567891"));
+        service.save(new Person("Name3", "1234567892"));
+
+        ObservableList<Person> observableList = service.getAll();
 
         columnId.setCellValueFactory(new PropertyValueFactory<Person, Integer>("id"));
         columnName.setCellValueFactory(new PropertyValueFactory<Person, String>("name"));
         columnNumber.setCellValueFactory(new PropertyValueFactory<Person, String>("number"));
 
-        personTable.getColumns().add(columnId);
-        personTable.getColumns().add(columnName);
-        personTable.getColumns().add(columnNumber);
-        personTable.refresh();
+        personTable.setItems(observableList);
 
         observableList.addListener((ListChangeListener<Person>) change ->
                 recordsCount.setText("Count:" + service.getAll().size()));
@@ -84,9 +83,7 @@ public class MainController {
             e.printStackTrace();
         }
 
-        service.save(new Person("Name", "1234567890"));
-        service.save(new Person("Name2", "1234567891"));
-        service.save(new Person("Name3", "1234567892"));
+
     }
 
     public void setMainStage(Stage stage) {

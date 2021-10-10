@@ -46,7 +46,7 @@ public class EditController {
 
         if (name.matches(Regex.NAME_REGEX) &&
                 number.matches(Regex.NUMBER_REGEX)){
-            person.setNameAndSurname(name);
+            person.setName(name);
             person.setNumber(number);
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

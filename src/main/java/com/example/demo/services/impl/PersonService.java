@@ -5,8 +5,6 @@ import com.example.demo.repositories.impl.PersonRepository;
 import com.example.demo.services.Service;
 import javafx.collections.ObservableList;
 
-import java.util.List;
-
 public class PersonService implements Service {
     private final PersonRepository repository;
 
@@ -31,7 +29,7 @@ public class PersonService implements Service {
         if (toEdit == null) return false;
 
         toEdit.setNumber(newPerson.getNumber());
-        toEdit.setNameAndSurname(newPerson.getNameAndSurname());
+        toEdit.setName(newPerson.getName());
 
         return true;
     }

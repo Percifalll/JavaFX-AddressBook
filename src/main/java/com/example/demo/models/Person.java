@@ -8,20 +8,20 @@ import java.util.Objects;
 public class Person implements Comparable<Person>{
     private static int counter = 0;
 
-    private final SimpleIntegerProperty id;
-    private final SimpleStringProperty nameAndSurname;
-    private final SimpleStringProperty number;
+    private SimpleIntegerProperty id;
+    private SimpleStringProperty name;
+    private SimpleStringProperty number;
 
     public Person() {
         id = new SimpleIntegerProperty();
-        nameAndSurname = new SimpleStringProperty();
+        name = new SimpleStringProperty();
         number = new SimpleStringProperty();
         id.set(++counter);
     }
 
     public Person(String nameAndSurname, String number) {
         this();
-        this.nameAndSurname.set(nameAndSurname);
+        this.name.set(nameAndSurname);
         this.number.set(number);
     }
 
@@ -29,12 +29,12 @@ public class Person implements Comparable<Person>{
         return id.get();
     }
 
-    public String getNameAndSurname() {
-        return nameAndSurname.get();
+    public String getName() {
+        return name.get();
     }
 
-    public void setNameAndSurname(String nameAndSurname) {
-        this.nameAndSurname.set(nameAndSurname);
+    public void setName(String name) {
+        this.name.set(name);
     }
 
     public String getNumber() {
@@ -55,11 +55,23 @@ public class Person implements Comparable<Person>{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Objects.equals(nameAndSurname, person.nameAndSurname) && Objects.equals(number, person.number);
+        return Objects.equals(name, person.name) && Objects.equals(number, person.number);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nameAndSurname, number);
+        return Objects.hash(name, number);
+    }
+
+    public SimpleIntegerProperty idProperty() {
+        return id;
+    }
+
+    public SimpleStringProperty nameProperty() {
+        return name;
+    }
+
+    public SimpleStringProperty numberProperty() {
+        return number;
     }
 }

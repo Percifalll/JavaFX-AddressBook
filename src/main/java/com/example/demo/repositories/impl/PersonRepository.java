@@ -36,7 +36,7 @@ public class PersonRepository implements Repository {
     @Override
     public Person getByName(String name) {
         return people.stream()
-                .filter(p -> p.getNameAndSurname().equals(name))
+                .filter(p -> p.getName().equals(name))
                 .findFirst()
                 .orElse(null);
     }
