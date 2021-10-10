@@ -3,6 +3,7 @@ package com.example.demo.controllers;
 import com.example.demo.models.Person;
 import com.example.demo.services.Service;
 import com.example.demo.utils.Regex;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -11,7 +12,9 @@ import javafx.scene.input.MouseEvent;
 
 public class AddController {
 
-    Service service;
+    private Service service;
+
+    private ObservableList<Person> personObservableList;
 
     @FXML
     private Button addButton;
@@ -35,6 +38,7 @@ public class AddController {
                 number.matches(Regex.NUMBER_REGEX)){
             newPerson = new Person(name, number);
             service.save(newPerson);
+            personObservableList.add(newPerson);
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Incorrect input format");
@@ -55,4 +59,7 @@ public class AddController {
         this.service = service;
     }
 
+    public void setPersonObservableList(ObservableList<Person> personObservableList) {
+        this.personObservableList = personObservableList;
+    }
 }
