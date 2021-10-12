@@ -18,6 +18,11 @@ public class AddressBookApplication extends Application {
         mainController.setMainStage(stage);
 
         Scene scene = new Scene(fxmlMain, 500, 600);
+
+        scene.getStylesheets().add(
+                getClass().getResource("main.css").toExternalForm()
+        );
+
         stage.setTitle("Address Book");
         stage.setScene(scene);
         stage.show();
